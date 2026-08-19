@@ -1,8 +1,9 @@
 ---
 id: WIN-001
-status: pending
-assignee: （待领取）
+status: doing
+assignee: Windows agent
 created: 2025-XX-XX
+claimed: 2026-08-19
 ---
 
 # WIN-001:安装并配置 Sunshine,完成 Moonlight 配对,测出基线延迟
