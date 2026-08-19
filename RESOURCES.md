@@ -32,7 +32,7 @@
 | Go Live 延迟 | 面向观众设计（0.5~2s 玻璃到玻璃），客户端 de-jitter 缓冲是最大延迟源；不适合操作者 | Discord 工程博客 + discord-plays-mario-kart 实测 |
 | 低延迟参照 | Parsec（BUD 协议，UDP+DTLS，视频零缓冲，延迟>帧率>画质）、Steam Remote Play（NvFBC/NvIFR 零拷贝采集 + SDR 骨干网） | Parsec 官方博客 / SSTIC 2023 逆向论文 |
 | 视频引擎复用 | Sunshine（GPLv3，4 万 star，REST API 可编排）+ moonlight-web-stream（GPLv3，浏览器 WebRTC 客户端） | GitHub 核实 |
-| 商业模式 | 全开源成立：服务端 AGPLv3、客户端 GPLv3、商标保留；收入走 Discord 内购与托管订阅 | 商业化-全开源模式.md |
+| 商业模式 | 全开源成立：服务端 AGPLv3、客户端 GPLv3、**设计层专有闭源**（与 GPL fork 架构隔离：独立页面/iframe，仅经 URL/postMessage/网络通信）、商标保留；收入走 Discord 内购与托管订阅 | 商业化-全开源模式.md |
 | 输入路由参考 | PassTheStick（MIT，.NET 8，消息协议/键盘注入/交接 UX 可借鉴） | GitHub 尽调 |
 
 ## 关键架构决策（当前基线）
