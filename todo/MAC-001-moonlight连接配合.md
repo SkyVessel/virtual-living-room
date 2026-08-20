@@ -1,7 +1,7 @@
 ---
 id: MAC-001
-status: pending
-assignee: （待领取）
+status: done
+assignee: Yasmine (Mac)
 created: 2025-XX-XX
 depends: WIN-001
 ---
@@ -42,4 +42,15 @@ depends: WIN-001
 
 ## 结果
 
-（待填写）
+**2026-08-19 完成。连接全链路打通，核心结论：**
+
+1. **Moonlight 版本**:6.1.0(brew cask),Mac 侧安装顺利
+2. **配对成功（全程序化，关键验证）**:`moonlight pair <IP> --pin <指定4位PIN>` 发起配对 + `POST /api/pin`(Basic Auth）提交 PIN，全程无人工干预，Sunshine 端 named_certs 出现客户端 mac-yasmine。**注意时序**：必须等 Sunshine 挂住 pair 请求（日志出现 phrase=getservercert）后再提交 PIN，否则提交无效（status:true 但不生效）
+3. **串流点亮**:1080p，最高验证到 120fps / 50Mbps / HEVC，画面清晰
+4. **手柄注入**：未实测（Mac 侧无手柄），移交后续任务
+5. **网络判决书（重要）**:Mac(Wi-Fi 5GHz 信号优）→ Windows 的 TCP 往返：中位 12.4ms / p95 88ms / 最大 356ms / 抖动 53ms。**Wi-Fi 抖动导致音画间歇卡顿**,Moonlight 零缓冲设计将其原样暴露。已排除：输入设备、刷新率错配（120/120/120 已对齐）、编码器（HEVC/H.264 均卡）、AWDL 后台扫描（关闭无效）、网络丢包（5 分钟 0 丢帧）
+
+**残留风险 / 移交后续任务**:
+- 待确认 Windows 侧是网线还是 Wi-Fi 连路由器（若 Host 也走 Wi-Fi，抖动翻倍；Host 插网线收益最大）
+- **产品级结论：播放端必须做自适应抖动缓冲（10~50ms) + 自适应码率/帧率降级 + 网络质量指示，不学 Moonlight 零缓冲原教旨主义**
+- Host 插网线后可复测对比
